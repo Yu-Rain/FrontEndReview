@@ -1,7 +1,7 @@
 # Event Loop 事件循环
 [TOC]
 
-> 通过阅读参考资料后的自己总结，不会是很细致的翻译。涉及到浏览器的时间循环会多写一写。
+> 通过阅读参考资料后的自己总结，不会是很细致的翻译。涉及到浏览器的事件循环会多写一写。
 > 欢迎大家一起讨论。
 > 规范比较难读，可以先看MDN的资料
 > 参考资料 
@@ -89,7 +89,7 @@ rAF
 * MutaionObserver （MDN）
 * Promise.then、Promise.catch、 Promise.finally，await （MDN）
 * queueMicrotask()可以创建微任务 （MDN）
-* 	
+* 	process.nextTick（Node.js）
 
 ### 为什么要有微任务？
 > 使用微任务的最主要原因简单归纳为：确保任务顺序的一致性，即便当结果或数据是同步可用的，也要同时减少操作中用户可感知到的延迟而带来的风险。
@@ -99,7 +99,7 @@ rAF
 
 ## 事件循环是干什么用的？
 
-事件循环是用来协调事件、用户交互、脚本、渲染、网络等 的一种机制（模型）。
+事件循环是用来协调事件、用户交互、脚本、渲染、网络I/O等 的一种机制（模型）。
 
 ```
 # HTML规范
@@ -341,34 +341,16 @@ click
 
 ------
 
-# Node.js的事件循环
 
-> [Node.js 事件循环，定时器和 process.nextTick](https://nodejs.org/zh-cn/docs/guides/event-loop-timers-and-nexttick/)
 
-事件循环是Node.js处理非阻塞I/O的机制
 
-## 阶段概述
-> 每个阶段都有一个 FIFO 队列来执行回调
-> 当该队列已用尽或达到系统相关的回调数量限制，事件循环将移动到下一阶段
 
-* timers(计时器)
-	* 执行setTimeout()和setINterval()的回调参数 
-* pending callbacks(等待(挂起)回调)
-	* 执行延迟到下一个循环迭代的I/O回调？？？？？ 
-* idle,prepare：仅系统内部使用 
-* poll(轮询)
-	* 检索新的I/O事件
-	* 执行与I/O相关的回调
-		* ？？？？（几乎所有情况下，除了关闭的回调函数，那些由计时器和 setImmediate() 调度的之外），其余情况 node 将在适当的时候在此阻塞。  
-* check(检测)
-	* 执行setImmediate()的回调参数 
-* close callbacks(关闭的回调函数)
-	* 一些关闭的回调函数，如：socket.on('close', ...)。 
 
-```
- 在每次运行的事件循环之间，Node.js 检查它是否在等待任何异步 I/O 或计时器，如果没有的话，则完全关闭。
-```
 
-libuv（实现 Node.js 事件循环和平台的所有异步行为的 C 函数库）
-Node.js 的工作线程池是通过 libuv（相关文档）来实现的，它对外提供了一个通用的任务处理 API。
+
+
+
+
+
+
 
