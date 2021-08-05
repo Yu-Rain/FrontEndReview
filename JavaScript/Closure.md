@@ -18,6 +18,9 @@
 * 实现单例设计模式
 * 实现迭代器
 * 立即执行函数
+	* 包一个匿名函数并立即执行它的方法称为 IIFE(Immediately-Invoked Function Expression,立即执行函数表达式)。
+	* 可以解决在for循环中var定义的i最后输出的都是同一个值的问题。
+	* 实际上就是用函数传参，在新的函数作用域中新建参数变量，保证了变量的值不受外界影响。 而现在可以使用let语法的块作用域做到。
 
 ## How
 
@@ -28,5 +31,38 @@
 
 
 由于内外层函数arguments变量同名的原因， 在内层函数中无法直接访问外层函数中的arguments变量。需要在外层函数中 将arguments变量赋值给另一个变量A后， 在内层函数中通过访问变量A来访问外层的arguments变量
+
+### 闭包在处理速度和内存消耗方面对脚本性能具有负面影响
+以下代码不适合使用闭包
+原因： 每次new MyObject()的时候， 都会重新定义函数赋值给this.getName。 而这个函数只需要与实例对象（this)相关联， 并不需要对定义函数的词法环境进行引用
+
+```js
+function MyObject(name, message) {
+  this.name = name.toString();
+  this.message = message.toString();
+  this.getName = function() {
+    return this.name;
+  };
+
+  this.getMessage = function() {
+    return this.message;
+  };
+}
+```
+
+优化
+
+```js
+function MyObject(name, message) {
+  this.name = name.toString();
+  this.message = message.toString();
+}
+MyObject.prototype.getName = function() {
+  return this.name;
+};
+MyObject.prototype.getMessage = function() {
+  return this.message;
+};
+```
 
 
