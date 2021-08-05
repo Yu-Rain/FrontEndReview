@@ -71,7 +71,7 @@ function debounce(func, wait) {
 
 ```js
 function throttle(func, wait) {
-  let start = 0;
+  let start = Date.now();
   return function() { 
     const now = Date.now();
     if (now - start > wait) { //利用时间戳计算, 延迟到设定的时间后才执行真正的操作.
@@ -101,4 +101,6 @@ function throttle(func, wait) {
 }
 ```
 
+
+> 根据事件循环原理，时间戳方案要比setTimeout方案在时间上更准确一些？？？？
 
