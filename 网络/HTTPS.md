@@ -1,4 +1,4 @@
-HTTPS
+# HTTPS
 
 > 参考资料 【HTTP图解 7.2章】
 
@@ -13,7 +13,7 @@ HTTPS
 * HTTPS只是HTTP通信接口部分用SSL和TLS协议代替而已。
 	* 通常HTTP直接和TCP通信。而HTTPS是先和SSL通信，再由SSL和TCP通信。
 	* HTTP直接和TCP通信的端口是80， SSL和TCP通信的端口是443。
-
+ SSL协议位于TCP/IP协议与各种应用层协议之间
 
 ## HTTPS的加密方式
 

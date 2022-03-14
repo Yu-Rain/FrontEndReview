@@ -2,6 +2,9 @@
 
 ## JavaScript
 
+### 原型和原型链
+
+
 ### cookie，localStorage，sessionStorage 的区别
 
 - [x] 2021-04-29 初次
@@ -37,6 +40,9 @@
 - [x] 2021-04-30 初次
 - [ ] 2021-06-？ 复习 
 
+### 跨域
+
+### Web性能
  
 -----
 
@@ -52,6 +58,7 @@
 -----
 
 ## 手写题
+[手写题](https://github.com/Mayandev/fe-interview-handwrite)
 
 ### 简述 Javascript 中的防抖与节流的原理并尝试实现
 - [x] 2021-04-26 初次
@@ -59,8 +66,33 @@
 
 ### 数组去重有哪些方式？手写数组去重
 
-- [x] 2021-04-27 初次
-- [x] 2021-06-09 复习
+JavaScript 原理
+	•	实现 bind() ★★
+	•	实现 apply() ★★
+	•	实现 call() ★★
+	•	实现 instanceof ★
+	•	实现 new ★
+	•	实现 jsonp ★★★
+	•	实现 Promise ★★★
+	•	实现 Promise.all() ★★★
+	•	实现 Promise.race() ★
+	•	实现 EventEmitter 订阅监听模式 ★★
+	•	setTimout 实现 setInterval ★
+	•	深拷贝 ★★★
+
+函数
+	•	函数防抖 ★★★
+	•	函数节流 ★★★
+	•	函数柯里化（实现 sum(1,2)(3)()） ★★★
+
+数组
+	•	数组拍平 ★★★
+	•	数组去重 ★★★
+
+字符串
+	•	去除字符串首尾空格 ★
+
+
 
 ----
 
@@ -83,4 +115,11 @@
 ### HTTP 中 GET 和 POST 区别
 - [x] 2021-05-14 初次
 - [x] 2021-06-11 复习
+
+
+### HTTPS加密认证过程
+
+### TCP连接
+三次握手过程
+
 
